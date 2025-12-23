@@ -1,0 +1,121 @@
+#1
+data = [
+    ['folder', 'coursework.doc', 'folder', 'pict.png', 'data.accdb'],
+    ['icon.ico', 'script.js', 'index.html', 'style.css', 'prog.py'],
+    ['my_song.mp3', 'anapa-2003.jpg', 'cs_1.6.exe', 'folder', 'cheat.txt'],
+    ['notes.txt', 'main.py', 'work.pdf', 'cartoon.mp4', 'array.py'],
+    ['project.psd', 'cycle.py', 'folder', 'cycle.js', 'turtle.py']
+]
+
+print("--- 1. Весь двумерный массив ---")
+for row in data:
+    print(row)
+
+
+new_data = []
+for row in data:
+    new_row = []
+    for item in row:
+        if item == 'folder':
+            continue  
+        elif item == 'data.accdb':
+            new_row.append('data.sql') 
+        else:
+            new_row.append(item)
+    new_data.append(new_row)
+
+data = new_data 
+print("\n--- 2. После удаления 'folder' и замены 'data.accdb' ---")
+for row in data:
+    print(row)
+
+py_files = []
+temp_data_for_py = [row[:] for row in data] 
+
+for row in data:
+    for item in row:
+        if item.endswith('.py'):
+            py_files.append(item)
+
+print("\n--- 3. Элементы с расширением .py ---")
+print(py_files)
+
+
+js_files = []
+temp_data_for_js = [row[:] for row in data] 
+
+for row in data:
+    for item in row:
+        if item.endswith('.js'):
+            js_files.append(item + "_new_") 
+
+print("\n--- 4. Элементы с расширением .js и 'new_' ---")
+print(js_files)
+
+print("\n--- Финальный вид основного массива ---")
+for row in data:
+    print(row)
+#2
+word_numb = ["ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь", "девять"]
+
+n = int(input("Введите число n от 0 до 9: "))
+
+if 0 <= n <= 9:
+    for i in range(n + 1):
+        print(word_numb[i])
+else:
+    print('Введите число <= 9')
+#3
+bin_sy = ['11011111', '11011101', '11000111', '11011100', '11011110']
+decimal_list = []
+
+for b in bin_sy:
+    number = int(b, 2)  
+    decimal_list.append(number)
+    print(number)
+
+print("Максимальное число:", max(decimal_list))
+print("Минимальное число:", min(decimal_list))
+#4
+matrix = [
+    [-446, 281, -80],
+    [465, 432, -122],
+    [13, 'error', 8]
+]
+
+print("Исходная матрица:")
+print(matrix)
+
+for i, row in enumerate(matrix): 
+    for j, element in enumerate(row): 
+        if isinstance(element, str):
+            matrix[i][j] = len(element) 
+
+print("\nМатрица после преобразования:")
+print(matrix)
+total_sum = 0
+for row in matrix:
+    for element in row:
+       
+        if isinstance(element, (int, float)): 
+            total_sum += element
+
+print("\nСумма всех элементов матрицы:")
+print(total_sum)
+#5
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+n = len(matrix) 
+diagonal_sum = 0
+for i in range(n):
+    diagonal_sum += matrix[i][n - 1 - i]
+print(f"Матрица:\n{matrix[0]}\n{matrix[1]}\n{matrix[2]}")
+print(f"\nСумма чисел по диагонали (справа налево): {diagonal_sum}")
+
+
+
+
+
